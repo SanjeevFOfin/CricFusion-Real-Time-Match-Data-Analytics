@@ -1,51 +1,98 @@
 import streamlit as st
 from pages import cricbuzz_home, CRUD_operations, live_matches, Top_Sqlstats
 
-# Cricket-themed background CSS
-page_bg_img = """
+# Database connection config
+DB_KWARGS = dict(
+    host="localhost",
+    user="root",
+    password="blacky1996",
+    database="Cricbuzz"
+)
+
+# Set page config
+st.set_page_config(page_title="Mainpage_Intro", layout="wide")
+
+page_bg_color = """
 <style>
 .stApp {
-    background-image: url("https://images.slivcdn.com/videoasset_images/manage_file/1000007861/1757519547213308_AsiaCup_2025_GOB_3_Landscape_Thumb_SP_3.jpg?w=1349&q=low");
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #0D1B2A;  /* Dark bluish Oxford Blue */
+    color: white;
+}
+
+[data-testid="stAppViewContainer"] > .main {
+    color: white;
 }
 </style>
 """
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# Page config
-st.set_page_config(page_title="Main_Page", layout="wide")
+st.markdown(page_bg_color, unsafe_allow_html=True)
 
 # App Title
-st.title("🏏 CricFusion – Asia Cup 2025 Live Stats Dashboard")
+st.title("🏏 CricFusion – Real-Time Cricket Match Data Analytics")
 
-# Welcome Section
+# Project Intro
 st.markdown("""
-Welcome to **CricFusion**, your ultimate interactive dashboard for live stats, player analytics, and match summaries from the **Asia Cup 2025**!
+## 🚀 Project Introduction
 
-Here, you can:
-- Explore in-depth player statistics  
-- View match summaries  
-- Analyze top scorers and bowlers  
-- Navigate through different matches easily
+Welcome to **CricFusion**, your interactive dashboard designed to provide live statistics, player analytics, and match summaries for the **Asia Cup 2025**.
 
-Stay updated with real-time cricket action, powered by our efficient data pipeline and beautiful Streamlit interface.
+This project aims to:
+- Deliver real-time player and match insights
+- Provide easy navigation for cricket enthusiasts  
+- Support CRUD operations for data management  
+- Offer top statistical summaries and in-depth analysis
 
-⚡ Enjoy the excitement of cricket in Asia Cup 2025! ⚡
+Built with Streamlit and backed by a MySQL database, CricFusion empowers you to stay updated with the excitement of the Asia Cup in a beautiful and efficient interface.
 """)
 
-# Asia Cup Info Section
+# Asia Cup 2025 Info
 st.markdown("""
-## 📖 About Asia Cup 2025
+## 🏏 Asia Cup 2025 – Tournament Overview
 
-The **Asia Cup 2025** is one of the most anticipated cricket tournaments in Asia, featuring top cricketing nations like India, Pakistan, Sri Lanka, Bangladesh, and others.  
-This tournament showcases fierce rivalries, emerging talents, and the spirit of cricket.
+The **17th edition of the Asia Cup** is being held from **9 to 28 September 2025**.  
+It’s played in the **T20 International (T20I)** format with a total of **19 matches**.  
 
-👉 **Format:** T20 (most likely)  
-📍 **Host Country:** To be announced  
-🏆 **Defending Champion (2023):** India
+Originally awarded to **India**, the tournament is being played in the **United Arab Emirates (UAE)** due to political tensions, with games hosted at:  
+- 🏟️ Dubai International Cricket Stadium, Dubai  
+- 🏟️ Sheikh Zayed Cricket Stadium, Abu Dhabi  
 
-Stay tuned for live match updates, player performance insights, and in-depth analytics as the tournament progresses.
+---
 
-Let the battle for Asia’s cricket supremacy begin! 🎉
+## 🌏 Participating Teams (8)
+
+- 🇮🇳 India  
+- 🇵🇰 Pakistan  
+- 🇱🇰 Sri Lanka  
+- 🇧🇩 Bangladesh  
+- 🇦🇫 Afghanistan  
+- 🇦🇪 United Arab Emirates (UAE)  
+- 🇴🇲 Oman  
+- 🇭🇰 Hong Kong  
+
+---
+
+## 🗂️ Groups & Format
+
+**Group A**  
+- 🇮🇳 India  
+- 🇵🇰 Pakistan  
+- 🇴🇲 Oman  
+- 🇦🇪 UAE  
+
+**Group B**  
+- 🇦🇫 Afghanistan  
+- 🇧🇩 Bangladesh  
+- 🇱🇰 Sri Lanka  
+- 🇭🇰 Hong Kong  
+
+➡️ Top **2 teams from each group** qualify for the **Super Four** stage.  
+➡️ The top 2 teams from the Super Four then meet in the **Grand Final**.  
+
+---
+
+## 📌 Quick Facts  
+
+- 🗓 **Dates:** 9–28 September 2025  
+- 🏆 **Defending Champion:** India (2023)  
+- 📍 **Host Venues:** Dubai & Abu Dhabi, UAE  
+- 🔢 **Matches:** 19 T20Is  
 """)
