@@ -10,6 +10,9 @@ DB_KWARGS = dict(
     database="Cricbuzz"
 )
 
+# Page config
+st.set_page_config(page_title="SQL_Queries", layout="wide")
+
 # Define run_query function
 @st.cache_data
 def run_query(query, params=None):
@@ -25,8 +28,7 @@ def run_query(query, params=None):
         return pd.DataFrame()
 
 
-# Page config
-st.set_page_config(page_title="SQL_Queries", layout="wide")
+
 
 import streamlit as st
 

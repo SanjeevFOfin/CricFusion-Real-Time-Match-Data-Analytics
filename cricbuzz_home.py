@@ -10,7 +10,8 @@ DB_KWARGS = dict(
     database="Cricbuzz"
 )
 
-
+# Page config
+st.set_page_config(page_title="cricbuzz_home", layout="wide")
 
 # Cricket-themed background CSS
 page_bg_img = """
@@ -52,7 +53,8 @@ st.markdown(
 )
 
 
-st.title("🏏 CricFusion – Real-Time Match Data Analytics")
+st.title("🏏 CricFusion – Home Page")
+    
 # ==========================================================
 # CricFusion – Real-Time Cricket Match Data Analytics
 # Full Streamlit App (Raw Data Viewer + 11 SQL Analyses)
@@ -67,7 +69,7 @@ st.markdown(
     <h3 style='color:white;'>Project Type: Data Analysis & Web Application</h3>
     <h3 style='color:white;'>Contribution: Individual (SANJEEV RAJ T)</h3>
     <h3 style='color:white;'>GitHub Link: 
-        <a href='https://github.com/YourGithubUsername/CricFusion'
+        <a href='https://github.com/SanjeevFOfin/CricFusion-Real-Time-Match-Data-Analytics'
         style='color:blue;'>My Project Repository</a>
     </h3>
     <h3 style='color:white;'>Project Summary:</h3>

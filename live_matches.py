@@ -19,7 +19,7 @@ import streamlit as st
 
 def app():
     st.title("Live Matches Page")
-    st.write("Display live match information here.")
+    st.write("Display live match information here - Dashboard")
 
 
 # Cricket-themed background CSS
